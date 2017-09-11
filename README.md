@@ -4,6 +4,24 @@ This is an implementation of the [NaCl](https://nacl.cr.yp.to/) API
 for the ARM Cortex-M0. It is based on the AVR implementation of
 [μNaCl](https://munacl.cryptojedi.org/curve25519-atmega.shtml).
 
+To use this library with a [yotta](http://docs.yottabuild.org/) project
+add this github repository as a dependency:
+
+```json
+{
+  ...
+  "dependencies": {
+    "nacl": "ubirch/ubirch-nacl-cm0#v1.0.0"
+  },
+  ...
+}
+```
+
+> About the `CMakeLists.txt` file. This is mainly used to get
+> [CLion](https://www.jetbrains.com/clion/) to find headers and make the
+> syntax highlighting useful. It includes `lib.cmake` which can be used
+> in a another project and only adds the library sources.
+
 # Credits
 
 The port was done by Andreas Schuler for [ubirch GmbH](http://ubirch.com) and
