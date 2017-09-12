@@ -28,6 +28,10 @@ The port was done by Andreas Schuler for [ubirch GmbH](http://ubirch.com) and
 adapted for use with [mbed](https://mbed.org) and [Calliope mini](http://calliope.cc)
 by [Matthias L. Jugel](https://github.com/thinkberg).
 
+# Status
+
+> ⚡ *Work in progress.* An audit for this implementation is pending.
+
 # License
 
 This work is available under the [Apache License](LICENSE)
