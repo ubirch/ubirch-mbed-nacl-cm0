@@ -11,7 +11,7 @@ add this github repository as a dependency:
 {
   ...
   "dependencies": {
-    "nacl": "ubirch/ubirch-mbed-nacl-cm0#v1.0.0"
+    "nacl": "ubirch/ubirch-mbed-nacl-cm0#v0.1.0"
   },
   ...
 }
