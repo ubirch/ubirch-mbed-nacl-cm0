@@ -5,3 +5,4 @@ yotta_modules
 *.iml
 cmake-*
 mbed_settings.py
+.mbed
