@@ -4,6 +4,14 @@ This is an implementation of the [NaCl](https://nacl.cr.yp.to/) API
 for the ARM Cortex-M0. It is based on the AVR implementation of
 [μNaCl](https://munacl.cryptojedi.org/curve25519-atmega.shtml).
 
+## mbed-os 5
+
+```bash
+mbed add https://github.com/ubirch/ubirch-mbed-nacl-cm0
+```
+
+## mbed-os 2
+
 To use this library with a [yotta](http://docs.yottabuild.org/) project
 add this github repository as a dependency:
 
@@ -21,6 +29,17 @@ add this github repository as a dependency:
 > [CLion](https://www.jetbrains.com/clion/) to find headers and make the
 > syntax highlighting useful. It includes `lib.cmake` which can be used
 > in a another project and only adds the library sources.
+
+## Testing
+
+> The tests are long-running, so please be patient.
+
+```bash
+mbed new .
+mbed target NRF52_DK
+mbed toolchain GCC_ARM
+mbed test -n tests-nacl*
+```
 
 # Credits
 

@@ -1,0 +1,10 @@
+source/randombytes/randombytes.c
+source/nacl/test/*
+mbed-os/features/net/*
+mbed-os/uvisor-mbed-lib/*
+mbed-os/frameworks/*
+mbed-os/features/mbedtls/*
+
+cmake-build/*
+cmake-*
+.temp/*
