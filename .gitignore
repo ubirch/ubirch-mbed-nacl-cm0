@@ -4,3 +4,4 @@ yotta_modules
 .idea
 *.iml
 cmake-*
+mbed_settings.py
