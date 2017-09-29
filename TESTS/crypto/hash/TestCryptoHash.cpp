@@ -28,12 +28,12 @@
 
 extern "C" {
 #include "nacl/armnacl.h"
-#include "randombytes/randombytes.h"
 }
 
 #include "utest/utest.h"
 #include "unity/unity.h"
 #include "greentea-client/test_env.h"
+#include "../../testhelper.h"
 
 using namespace utest::v1;
 
@@ -46,15 +46,6 @@ static unsigned char *m2;
 
 static char checksum[crypto_hash_BYTES * 2 + 1];
 
-#define fail(m) {TEST_ASSERT_MESSAGE(false, m)}
-#define print printf
-#define printnum(s, n) printf((s " %llu\r\n"), (n))
-
-long random() {
-    static uint32_t r;
-    randombytes((unsigned char *) (&r), 4);
-    return r;
-}
 
 void TestCryptoHash() {
     long long i;
@@ -80,7 +71,7 @@ void TestCryptoHash() {
 
 
     for (i = 0; i < MAXTEST_BYTES; ++i) {
-        //printnum("Loop:", i);
+        printnum("Loop:", i);
 
         long long hlen = crypto_hash_BYTES;
         long long mlen = i;

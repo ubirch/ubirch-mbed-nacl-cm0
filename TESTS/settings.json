@@ -1,0 +1,8 @@
+{
+  "macros": [
+    "OS_STACKSIZE=1536"
+  ],
+  "config": {
+    "stack_size": 6144
+  }
+}

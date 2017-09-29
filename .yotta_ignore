@@ -1,13 +1,3 @@
 CMakeLists.txt
-lib.cmake
-source/nacl/test/stack_crypto_hashblocks.cpp
-source/nacl/test/stack_crypto_hash.cpp
-source/nacl/test/stack_crypto_sign.cpp
-source/nacl/test/stack_crypto_verify.cpp
-source/nacl/test/test_crypto_hashblocks.cpp
-source/nacl/test/test_crypto_hash.cpp
-source/nacl/test/test_crypto_sign.cpp
-source/nacl/test/test_crypto_verify.cpp
-source/nacl/test/print.cpp
-source/nacl/test/random.cpp
-source/nacl/test/stacksize.cpp
+source/nacl/test/*
+source/randombytes/randombytes.c

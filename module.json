@@ -1,5 +1,5 @@
 {
-  "name": "ubirch-mbed-nacl-cm0",
+  "name": "ubirch-mbednacl-cm0",
   "version": "0.1.0",
   "description": "NaCl - Networking and Cryptography library",
   "keywords": [

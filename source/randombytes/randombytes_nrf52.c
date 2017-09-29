@@ -23,8 +23,8 @@
  * ```
  */
 #include <stdint.h>
+#include <nrf.h>
 #include <nrf_sdm.h>
-#include <nrf52.h>
 
 /**
  * Get a single random number from the rng (this function is a copy of what is found in the microbit-dal)

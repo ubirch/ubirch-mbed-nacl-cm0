@@ -26,25 +26,14 @@
 
 extern "C" {
 #include "nacl/armnacl.h"
-#include "randombytes/randombytes.h"
 }
 
 #include "utest/utest.h"
 #include "unity/unity.h"
 #include "greentea-client/test_env.h"
+#include "../../testhelper.h"
 
 using namespace utest::v1;
-
-#define fail(m) {TEST_ASSERT_MESSAGE(false, m)}
-#define print printf
-#define printnum(s, n) printf((s " %llu\r\n"), (n))
-#define printbytes(s, x, l) {printf(s);for(int i = 0; i < l; i++) printf("%02x", x[i]);}
-
-long random() {
-    static uint32_t r;
-    randombytes((unsigned char *) (&r), 4);
-    return r;
-}
 
 static unsigned char *x;
 static unsigned char *y;
