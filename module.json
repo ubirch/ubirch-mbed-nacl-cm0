@@ -1,6 +1,6 @@
 {
   "name": "ubirch-mbednacl-cm0",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "NaCl - Networking and Cryptography library",
   "keywords": [
     "nacl",
@@ -10,7 +10,7 @@
   "author": "Matthias L. Jugel <matthias.jugel@ubirch.com>",
   "homepage": "https://github.com/ubirch/ubirch-nacl-cm0",
   "repository": {
-    "url": "git@github.com:ubirch/libnacl-arm-cortex-m0.git",
+    "url": "git@github.com:ubirch/ubirch-mbed-nacl-cm0.git",
     "type": "git"
   },
   "license": "Apache 2.0",

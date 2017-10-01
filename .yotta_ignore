@@ -1,3 +1,4 @@
 CMakeLists.txt
 source/nacl/test/*
 source/randombytes/randombytes.c
+TESTS/*
