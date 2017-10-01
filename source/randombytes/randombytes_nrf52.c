@@ -22,6 +22,8 @@
  * limitations under the License.
  * ```
  */
+#ifdef NRF52
+
 #include <stdint.h>
 #include <nrf_sdm.h>
 
@@ -72,3 +74,5 @@ void randombytes(unsigned char *x, unsigned long long xlen) {
         xlen--;
     }
 }
+
+#endif // NRF52
