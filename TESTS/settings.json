@@ -1,8 +1,7 @@
 {
   "macros": [
-    "OS_STACKSIZE=1536"
-  ],
-  "config": {
-    "stack_size": 6144
-  }
+    "MBED_HEAP_STATS_ENABLED=1",
+    "MBED_STACK_STATS_ENABLED=1",
+    "MBED_MEM_TRACING_ENABLED=1"
+  ]
 }

@@ -19,7 +19,7 @@ add this github repository as a dependency:
 {
   ...
   "dependencies": {
-    "nacl": "ubirch/ubirch-nacl-cm0#v1.0.0"
+    "nacl": "ubirch/ubirch-mbed-nacl-cm0#v1.0.0"
   },
   ...
 }
@@ -38,7 +38,42 @@ add this github repository as a dependency:
 mbed new .
 mbed target NRF52_DK
 mbed toolchain GCC_ARM
-mbed test -n tests-nacl*
+mbed test -n 'tests-stack*,tests-crypto*'
+```
+
+These tests are the original tests that came with the library, adapted to run in the mbed test harness.
+
+Test suites:
+```
++------------------+---------------+-------------------------+--------+--------------------+-------------+
+| target           | platform_name | test suite              | result | elapsed_time (sec) | copy_method |
++------------------+---------------+-------------------------+--------+--------------------+-------------+
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-crypto-hash       | OK     | 191.01             | default     |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-crypto-hashblocks | OK     | 203.61             | default     |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-crypto-sign       | OK     | 329.61             | default     |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-crypto-verify     | OK     | 40.07              | default     |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-stack-hash        | OK     | 40.14              | default     |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-stack-hashblocks  | OK     | 40.23              | default     |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-stack-sign        | OK     | 180.06             | default     |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-stack-verify      | OK     | 40.68              | default     |
++------------------+---------------+-------------------------+--------+--------------------+-------------+
+```
+
+Individual test results:
+```
++------------------+---------------+-------------------------+------------------------------+--------+--------+--------+--------------------+
+| target           | platform_name | test suite              | test case                    | passed | failed | result | elapsed_time (sec) |
++------------------+---------------+-------------------------+------------------------------+--------+--------+--------+--------------------+
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-crypto-hash       | Test crypto-hash             | 1      | 0      | OK     | 152.57             |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-crypto-hashblocks | Test crypto-hashblocks       | 1      | 0      | OK     | 164.14             |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-crypto-sign       | Test crypto-sign             | 1      | 0      | OK     | 291.11             |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-crypto-verify     | Test crypto-verify           | 1      | 0      | OK     | 2.47               |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-stack-hash        | Test stack-crypto-hash       | 1      | 0      | OK     | 1.47               |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-stack-hashblocks  | Test stack-crypto-hashblocks | 1      | 0      | OK     | 1.16               |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-stack-sign        | Test stack-crypto-sign       | 1      | 0      | OK     | 137.2              |
+| NRF52_DK-GCC_ARM | NRF52_DK      | tests-stack-verify      | Test stack-crypto-verify     | 1      | 0      | OK     | 0.68               |
++------------------+---------------+-------------------------+------------------------------+--------+--------+--------+--------------------+
+
 ```
 
 # Credits

@@ -23,7 +23,6 @@
  * ```
  */
 #include <stdint.h>
-#include <nrf.h>
 #include <nrf_sdm.h>
 
 /**

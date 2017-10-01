@@ -22,8 +22,6 @@
  */
 
 #include <sdk_common.h>
-#include <softdevice/s132/headers/nrf_soc.h>
-#include <softdevice/s132/headers/nrf_sdm.h>
 #include "mbed.h"
 
 extern "C" {
@@ -125,7 +123,7 @@ Case("Test crypto-hash", TestCryptoHash, greentea_failure_handler),
 };
 
 utest::v1::status_t greentea_test_setup(const size_t number_of_cases) {
-    GREENTEA_SETUP(300, "default_auto");
+    GREENTEA_SETUP(200, "default_auto");
     return greentea_test_setup_handler(number_of_cases);
 }
 

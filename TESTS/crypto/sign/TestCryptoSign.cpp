@@ -22,8 +22,6 @@
  */
 
 #include <sdk_common.h>
-#include <softdevice/s132/headers/nrf_soc.h>
-#include <softdevice/s132/headers/nrf_sdm.h>
 #include "mbed.h"
 
 extern "C" {
@@ -97,7 +95,7 @@ void TestCryptoSign() {
 
 
     //for (loops = 0;loops < 10;++loops)
-    for (loops = 0; loops < 1; ++loops) {
+    for (loops = 0; loops < 2; ++loops) {
         printnum("loops:", loops);
 
         for (j = -16; j < 0; ++j) sk2[j] = sk[j] = random();
@@ -228,11 +226,11 @@ utest::v1::status_t greentea_failure_handler(const Case *const source, const fai
 }
 
 Case cases[] = {
-Case("Test crypto-hash", TestCryptoSign, greentea_failure_handler),
+Case("Test crypto-sign", TestCryptoSign, greentea_failure_handler),
 };
 
 utest::v1::status_t greentea_test_setup(const size_t number_of_cases) {
-    GREENTEA_SETUP(600, "default_auto");
+    GREENTEA_SETUP(350, "default_auto");
     return greentea_test_setup_handler(number_of_cases);
 }
 

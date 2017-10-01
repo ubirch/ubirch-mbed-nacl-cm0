@@ -22,8 +22,6 @@
  */
 
 #include <sdk_common.h>
-#include <softdevice/s132/headers/nrf_soc.h>
-#include <softdevice/s132/headers/nrf_sdm.h>
 #include "mbed.h"
 
 extern "C" {
@@ -31,7 +29,6 @@ extern "C" {
 }
 
 #include "utest/utest.h"
-#include "unity/unity.h"
 #include "greentea-client/test_env.h"
 #include "nacl/test/stacksize.h"
 #include "../../testhelper.h"
@@ -86,7 +83,7 @@ utest::v1::status_t greentea_failure_handler(const Case *const source, const fai
 }
 
 Case cases[] = {
-Case("Test crypto-hash", TestStackCryptoHashBlocks, greentea_failure_handler),
+Case("Test stack-crypto-hashblocks", TestStackCryptoHashBlocks, greentea_failure_handler),
 };
 
 utest::v1::status_t greentea_test_setup(const size_t number_of_cases) {

@@ -166,46 +166,56 @@ add_library(mbed-os ${MBED_OS_SRCS})
 include_directories(${MBED_OS})
 # == END MBED OS 5 ==
 
+set(MEMORY_PROFILING "--app-config TESTS/settings.json -vv")
+
 add_custom_target(run-test-stack-hash
-        COMMAND mbed test -n tests-stack-hash -vv
+        COMMAND mbed test -n tests-stack-hash ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(run-test-stack-hashblocks
-        COMMAND mbed test -n tests-stack-hashblocks -vv
+        COMMAND mbed test -n tests-stack-hashblocks ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(run-test-stack-sign
-        COMMAND mbed test -n tests-stack-sign -vv
+        COMMAND mbed test -n tests-stack-sign ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(run-test-stack-verify
-        COMMAND mbed test -n tests-stack-verify -vv
+        COMMAND mbed test -n tests-stack-verify ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(run-test-crypto-hash
-        COMMAND mbed test -n tests-crypto-hash -vv
+        COMMAND mbed test -n tests-crypto-hash ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(run-test-crypto-hashblocks
-        COMMAND mbed test -n tests-crypto-hashblocks -vv
+        COMMAND mbed test -n tests-crypto-hashblocks ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(run-test-crypto-sign
-        COMMAND mbed test -n tests-crypto-sign -vv
+        COMMAND mbed test -n tests-crypto-sign ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(run-test-crypto-verify
-        COMMAND mbed test -n tests-crypto-verify -vv
+        COMMAND mbed test -n tests-crypto-verify ${MEMORY_PROFILING}
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+
+add_custom_target(run-tests-crypto ALL
+        COMMAND mbed test -n 'tests-crypto*' ${MEMORY_PROFILING}
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+
+add_custom_target(run-tests-stack ALL
+        COMMAND mbed test -n 'tests-stack*' ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(run-tests ALL
-        COMMAND mbed test -n tests-stack*,tests-crypto*
+        COMMAND mbed test -n 'tests-stack*,tests-crypto*' ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(debug-tests ALL
-        COMMAND mbed test -n tests-stack-hash* -vv --profile mbed-os/tools/profiles/debug.json
+        COMMAND mbed test -n 'tests-stack-hash*' --profile mbed-os/tools/profiles/debug.json ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(compile-debug-tests ALL
-        COMMAND mbed test -n tests-stack*,tests-crypto* -vv -c --compile --app-config TESTS/settings.json --profile mbed-os/tools/profiles/debug.json
+        COMMAND mbed test -n tests-stack*,tests-crypto* -c --compile --profile mbed-os/tools/profiles/debug.json ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
