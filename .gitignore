@@ -7,3 +7,5 @@ cmake-*
 mbed_settings.py
 mbed-os.lib
 .mbed
+testmem.csv
+testresult.xml
