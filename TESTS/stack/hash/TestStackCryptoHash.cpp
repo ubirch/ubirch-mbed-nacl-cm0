@@ -22,8 +22,6 @@
  */
 
 #include <sdk_common.h>
-#include <softdevice/s132/headers/nrf_soc.h>
-#include <softdevice/s132/headers/nrf_sdm.h>
 #include "mbed.h"
 
 extern "C" {

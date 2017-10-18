@@ -166,7 +166,7 @@ add_library(mbed-os ${MBED_OS_SRCS})
 include_directories(${MBED_OS})
 # == END MBED OS 5 ==
 
-set(MEMORY_PROFILING "--app-config TESTS/settings.json -vv")
+set(MEMORY_PROFILING --app-config TESTS/settings.json -vv)
 
 add_custom_target(run-test-stack-hash
         COMMAND mbed test -n tests-stack-hash ${MEMORY_PROFILING}
@@ -213,7 +213,7 @@ add_custom_target(run-tests ALL
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(debug-tests ALL
-        COMMAND mbed test -n 'tests-stack-hash*' --profile mbed-os/tools/profiles/debug.json ${MEMORY_PROFILING}
+        COMMAND mbed test -n 'tests-stack*' --profile mbed-os/tools/profiles/debug.json ${MEMORY_PROFILING}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_custom_target(compile-debug-tests ALL
