@@ -18,7 +18,6 @@ inline unsigned char test_random() {
 #define fail(m)                 {TEST_ASSERT_MESSAGE(false, (m))}
 #define print(...)              printf(__VA_ARGS__)
 #define printnum(s, n)          printf((s " %llu\r\n"), (n))
-#define fail(m)                 {TEST_ASSERT_MESSAGE(false, m)}
 #define printbytes(s, x, l)     {printf(s);for(int i = 0; i < (int)(l); i++) printf("%02x", (x)[i]);}
 #define print_stack(p, b, s)    {printf(p);if((b) != (unsigned int)-1) printf(" [%x]",(b)); printf(" %d stack bytes\r\n",(s));}
 #define random()                test_random()
