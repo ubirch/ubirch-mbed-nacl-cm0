@@ -25,48 +25,56 @@ include(lib.cmake)
 add_executable(test-stack-crypto-hash
         TESTS/stack/hash/TestStackCryptoHash.cpp
         source/randombytes/randombytes_nrf52.c
+        source/randombytes/randombytes_k8x.c
         )
 target_link_libraries(test-stack-crypto-hash mbed-os libnacl)
 
 add_executable(test-stack-crypto-hashblocks
         TESTS/stack/hashblocks/TestStackCryptoHashBlocks.cpp
         source/randombytes/randombytes_nrf52.c
+        source/randombytes/randombytes_k8x.c
         )
 target_link_libraries(test-stack-crypto-hashblocks mbed-os libnacl)
 
 add_executable(test-stack-crypto-sign
         TESTS/stack/sign/TestStackCryptoSign.cpp
         source/randombytes/randombytes_nrf52.c
+        source/randombytes/randombytes_k8x.c
         )
 target_link_libraries(test-stack-crypto-sign mbed-os libnacl)
 
 add_executable(test-stack-crypto-verify
         TESTS/stack/verify/TestStackCryptoVerify.cpp
         source/randombytes/randombytes_nrf52.c
+        source/randombytes/randombytes_k8x.c
         )
 target_link_libraries(test-stack-crypto-verify mbed-os libnacl)
 
 add_executable(test-crypto-hash
         TESTS/crypto/hash/TestCryptoHash.cpp
         source/randombytes/randombytes_nrf52.c
+        source/randombytes/randombytes_k8x.c
         )
 target_link_libraries(test-crypto-hash mbed-os libnacl)
 
 add_executable(test-crypto-hashblocks
         TESTS/crypto/hashblocks/TestCryptoHashBlocks.cpp
         source/randombytes/randombytes_nrf52.c
+        source/randombytes/randombytes_k8x.c
         )
 target_link_libraries(test-crypto-hashblocks mbed-os libnacl)
 
 add_executable(test-crypto-sign
         TESTS/crypto/sign/TestCryptoSign.cpp
         source/randombytes/randombytes_nrf52.c
+        source/randombytes/randombytes_k8x.c
         )
 target_link_libraries(test-crypto-sign mbed-os libnacl)
 
 add_executable(test-crypto-verify
         TESTS/crypto/verify/TestCryptoVerify.cpp
         source/randombytes/randombytes_nrf52.c
+        source/randombytes/randombytes_k8x.c
         )
 target_link_libraries(test-crypto-verify mbed-os libnacl)
 
