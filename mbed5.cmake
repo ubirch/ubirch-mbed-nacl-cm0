@@ -1,6 +1,6 @@
 set(CMAKE_BUILD_TYPE Debug)
 
-project(ubirch-mbed-nrf52-storage C CXX)
+project(ubirch-mbed-nacl-cm0 C CXX)
 set(CMAKE_CXX_STANDARD 98)
 
 # == MBED OS 5 settings ==
@@ -49,42 +49,7 @@ set(MBED_OS
         mbed-os/targets/${PLATFORM}/TARGET_${TARGET}/sdk/softdevice/s132/headers
         mbed-os/targets/${PLATFORM}/TARGET_${TARGET}/device
         mbed-os/targets/${PLATFORM}/TARGET_${TARGET}
-        mbed-os/targets/${PLATFORM}/sdk/ble/ble_advertising
-        mbed-os/targets/${PLATFORM}/sdk/ble/ble_db_discovery
-        mbed-os/targets/${PLATFORM}/sdk/ble/ble_debug_assert_handler
-        mbed-os/targets/${PLATFORM}/sdk/ble/ble_dtm
-        mbed-os/targets/${PLATFORM}/sdk/ble/ble_error_log
-        mbed-os/targets/${PLATFORM}/sdk/ble/ble_racp
-        mbed-os/targets/${PLATFORM}/sdk/ble/ble_radio_notification
-        mbed-os/targets/${PLATFORM}/sdk/ble/ble_services/ble_dfu
-        mbed-os/targets/${PLATFORM}/sdk/ble/common
-        mbed-os/targets/${PLATFORM}/sdk/ble/device_manager
-        mbed-os/targets/${PLATFORM}/sdk/ble/peer_manager
-        mbed-os/targets/${PLATFORM}/sdk/device
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/ble_flash
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/clock
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/common
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/config
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/delay
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/gpiote
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/hal
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/ppi
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/pstorage
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/spi_master
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/spi_slave
-        mbed-os/targets/${PLATFORM}/sdk/drivers_nrf/timer
-        mbed-os/targets/${PLATFORM}/sdk/libraries/bootloader_dfu
-        mbed-os/targets/${PLATFORM}/sdk/libraries/crc16
-        mbed-os/targets/${PLATFORM}/sdk/libraries/experimental_section_vars
-        mbed-os/targets/${PLATFORM}/sdk/libraries/fds
-        mbed-os/targets/${PLATFORM}/sdk/libraries/fstorage
-        mbed-os/targets/${PLATFORM}/sdk/libraries/hci
-        mbed-os/targets/${PLATFORM}/sdk/libraries/pwm
-        mbed-os/targets/${PLATFORM}/sdk/libraries/scheduler
-        mbed-os/targets/${PLATFORM}/sdk/libraries/trace
-        mbed-os/targets/${PLATFORM}/sdk/libraries/util
-        mbed-os/targets/${PLATFORM}/sdk/softdevice/common/softdevice_handler
-        # -- special for newer mbed-os
+        mbed-os/targets/${PLATFORM}/TARGET_NRF52_COMMON
         mbed-os/targets/${PLATFORM}/TARGET_SDK11/ble/ble_advertising
         mbed-os/targets/${PLATFORM}/TARGET_SDK11/ble/ble_db_discovery
         mbed-os/targets/${PLATFORM}/TARGET_SDK11/ble/ble_debug_assert_handler
@@ -120,10 +85,11 @@ set(MBED_OS
         mbed-os/targets/${PLATFORM}/TARGET_SDK11/libraries/trace
         mbed-os/targets/${PLATFORM}/TARGET_SDK11/libraries/util
         mbed-os/targets/${PLATFORM}/TARGET_SDK11/softdevice/common/softdevice_handler
-        # -- end special
         mbed-os/targets/${PLATFORM}
-        mbed-os/rtos/rtx/TARGET_CORTEX_M/TARGET_RTOS_M4_M7
-        mbed-os/rtos/rtx/TARGET_CORTEX_M
+        mbed-os/targets/${PLATFORM}/../
+        mbed-os/rtos/TARGET_CORTEX/rtx5/TARGET_RTOS_M4_M7/TOOLCHAIN_GCC
+        mbed-os/rtos/TARGET_CORTEX/rtx5
+        mbed-os/rtos/TARGET_CORTEX
         mbed-os/rtos
         mbed-os/features/FEATURE_BLE/ble/services
         mbed-os/features/FEATURE_BLE/ble
@@ -144,6 +110,8 @@ set(MBED_OS
         mbed-os/events/enqueue
         mbed-os/events
         mbed-os/drivers
+        mbed-os/cmsis/TARGET_CORTEX_M/TOOLCHAIN_GCC
+        mbed-os/cmsis/TARGET_CORTEX_M
         mbed-os/cmsis
         mbed-os
         )

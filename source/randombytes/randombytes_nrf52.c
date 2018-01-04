@@ -26,52 +26,35 @@
 
 #include <stdint.h>
 #include <nrf_sdm.h>
+#include <nrf.h>
 
-/**
- * Get a single random number from the rng (this function is a copy of what is found in the microbit-dal)
- *
- * @return a single random number byte
- */
-long getRandomNumber() {
-    static uint32_t random_value = 0;
+void randombytes(unsigned char *x, unsigned long long xlen) {
     uint8_t softdevice_enabled;
 
     sd_softdevice_is_enabled(&softdevice_enabled);
-
     if (softdevice_enabled == 1) {
-        // If Bluetooth is enabled, we need to go through the Nordic software to safely do this.
-        uint32_t result = sd_rand_application_vector_get((uint8_t *) &random_value, sizeof(random_value));
-
-        // If we couldn't get the random bytes then at least make the seed non-zero.
-        if (result != NRF_SUCCESS)
-            random_value = 0xBBC5EED;
+        uint8_t bytes_available = 0;
+        while(xlen > 0) {
+            sd_rand_application_bytes_available_get(&bytes_available);
+            if (bytes_available > 0) {
+                sd_rand_application_vector_get(x, 1);
+                x++;
+                xlen--;
+            }
+        }
     } else {
-        // Othwerwise we can access the hardware RNG directly.
-
-        // Start the Random number generator. No need to leave it running... I hope. :-)
         NRF_RNG->TASKS_START = 1;
+        NRF_RNG->CONFIG = 1;
 
-        for (int i = 0; i < 4; i++) {
-            // Clear the VALRDY EVENT
-            NRF_RNG->EVENTS_VALRDY = 0;
-
-            // Wait for a number ot be generated.
+        NRF_RNG->EVENTS_VALRDY = 0;
+        while(xlen > 0) {
             while (NRF_RNG->EVENTS_VALRDY == 0);
-
-            random_value = (random_value << 8) | ((int) NRF_RNG->VALUE);
+            *x = (uint8_t) NRF_RNG->VALUE;
+            x++;
+            xlen--;
         }
 
-        // Disable the generator to save power.
         NRF_RNG->TASKS_STOP = 1;
-    }
-    return random_value;
-}
-
-void randombytes(unsigned char *x, unsigned long long xlen) {
-    while (xlen > 0) {
-        *x = (unsigned char) getRandomNumber();
-        x++;
-        xlen--;
     }
 }
 
