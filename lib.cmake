@@ -13,4 +13,4 @@ add_library(libnacl
         # do write your own randombytes function
         #${CMAKE_CURRENT_LIST_DIR}/source/randombytes/randombytes.c
         )
-target_include_directories(libnacl PUBLIC ${CMAKE_CURRENT_LIST_DIR}/source)
+target_include_directories(libnacl PUBLIC ${CMAKE_CURRENT_LIST_DIR}/source/nacl ${CMAKE_CURRENT_LIST_DIR}/source/randombytes)
