@@ -16,6 +16,7 @@
   "license": "Apache 2.0",
   "dependencies": {},
   "extraIncludes": [
-    "source"
+    "source/nacl",
+    "source/randombytes"
   ]
 }
