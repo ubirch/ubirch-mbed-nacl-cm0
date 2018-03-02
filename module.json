@@ -8,7 +8,7 @@
     "curve25519"
   ],
   "author": "Matthias L. Jugel <matthias.jugel@ubirch.com>",
-  "homepage": "https://github.com/ubirch/ubirch-nacl-cm0",
+  "homepage": "https://github.com/ubirch/ubirch-mbed-nacl-cm0",
   "repository": {
     "url": "git@github.com:ubirch/ubirch-mbed-nacl-cm0.git",
     "type": "git"
