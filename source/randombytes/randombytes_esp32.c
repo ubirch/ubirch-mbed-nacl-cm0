@@ -5,10 +5,10 @@
  * @file
  * @brief Generate random numbers using the nRF51 hardware RNG
  *
- * @author Matthias L. Jugel
- * @date   2017-09-11
+ * @author Waldemar Gruenwald
+ * @date   2018-10-10
  *
- * @copyright &copy; 2017 ubirch GmbH (https://ubirch.com)
+ * @copyright &copy; 2018 ubirch GmbH (https://ubirch.com)
  *
  * @section LICENSE
  * ```
