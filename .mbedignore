@@ -17,7 +17,7 @@ source/nacl/test/test_crypto_verify.cpp
 mbed-os/features/net/*
 mbed-os/uvisor-mbed-lib/*
 mbed-os/frameworks/*
-mbed-os/features/mbedtls/*
+#mbed-os/features/mbedtls/*
 # ignore cmake and CLion stuff
 cmake-build/*
 cmake-*

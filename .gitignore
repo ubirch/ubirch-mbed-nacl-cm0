@@ -1,4 +1,5 @@
 build
+BUILD
 yotta_targets
 yotta_modules
 .idea
@@ -9,3 +10,6 @@ mbed-os.lib
 .mbed
 testmem.csv
 testresult.xml
+CMakeLists.txt
+GettingStarted.html
+mbed_config.h

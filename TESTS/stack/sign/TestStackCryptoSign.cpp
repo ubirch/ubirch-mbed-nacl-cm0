@@ -21,8 +21,10 @@
  * ```
  */
 
-#include <sdk_common.h>
 #include "mbed.h"
+#ifdef NRF52
+#include <sdk_common.h>
+#endif
 
 extern "C" {
 #include "nacl/armnacl.h"
