@@ -25,7 +25,8 @@
  * limitations under the License.
  * ```
  */
-#ifdef __ESP32__
+#ifdef ESP_PLATFORM
+
 #include "esp_system.h"
 
 
