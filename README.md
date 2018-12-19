@@ -30,6 +30,19 @@ add this github repository as a dependency:
 > syntax highlighting useful. It includes `lib.cmake` which can be used
 > in a another project and only adds the library sources.
 
+## ESP32
+
+To use this library within your esp32 project, you have to add it as a
+git submodule to your components directory:
+
+```bash
+git submodule add https://github.com/ubirch/ubirch-mbed-nacl-cm0.git
+```
+
+Afterwards, copy the `esp32.cmake` file to `CMakeLists.txt` or make a link.
+This way the cmake of your project will know and include all components
+of this library.
+
 ## Testing
 
 > The tests are long-running, so please be patient.
