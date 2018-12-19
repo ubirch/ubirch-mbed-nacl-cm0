@@ -1,3 +1,5 @@
+![ubirch logo](https://ubirch.de/wp-content/uploads/2018/10/cropped-uBirch_Logo.png)
+
 # A μNaCl port for ARM Cortex M0
 
 This is an implementation of the [NaCl](https://nacl.cr.yp.to/) API
