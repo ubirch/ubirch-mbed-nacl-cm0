@@ -22,7 +22,7 @@
  * limitations under the License.
  * ```
  */
-#ifdef NRF52
+
 
 #include <stdint.h>
 #include <nrf_sdm.h>
@@ -31,45 +31,7 @@
 void randombytes(unsigned char *x, unsigned long long xlen) {
     uint8_t softdevice_enabled;
 
-    sd_softdevice_isEnabled(&softdevice_enabled);
-    if (softdevice_enabled == 1) {
-        uint8_t bytes_available = 0;
-        while(xlen > 0) {
-            sd_rand_application_bytes_available_get(&bytes_available);
-            if (bytes_available > 0) {
-                sd_rand_application_vector_get(x, 1);
-                x++;
-                xlen--;
-            }
-        }
-    } else {
-        NRF_RNG->TASKS_START = 1;
-        NRF_RNG->CONFIG = 1;
-
-        NRF_RNG->EVENTS_VALRDY = 0;
-        while(xlen > 0) {
-            while (NRF_RNG->EVENTS_VALRDY == 0);
-            *x = (uint8_t) NRF_RNG->VALUE;
-            x++;
-            xlen--;
-        }
-
-        NRF_RNG->TASKS_STOP = 1;
-    }
-}
-
-#endif // NRF52
-
-#ifdef NRF52840_XXAA
-
-#include <stdint.h>
-#include <nrf_sdm.h>
-#include <nrf.h>
-
-void randombytes(unsigned char *x, unsigned long long xlen) {
-	uint8_t softdevice_enabled;
-
-	sd_softdevice_is_enabled(&softdevice_enabled);
+    sd_softdevice_is_enabled(&softdevice_enabled);
 	if (softdevice_enabled == 1) {
 		uint8_t bytes_available = 0;
 		while(xlen > 0) {
@@ -95,6 +57,4 @@ void randombytes(unsigned char *x, unsigned long long xlen) {
 		NRF_RNG->TASKS_STOP = 1;
 	}
 }
-
-#endif // NRF52
 
