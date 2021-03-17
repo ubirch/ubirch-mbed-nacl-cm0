@@ -10,6 +10,9 @@ void randombytes(unsigned char *x, unsigned long long xlen) {
 
 #else
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
@@ -17,10 +20,12 @@ void randombytes(unsigned char *x, unsigned long long xlen) {
 void randombytes(unsigned char *x, unsigned long long xlen) {
     const int randomdata = open("/dev/urandom", O_RDONLY);
     if (randomdata < 0) {
-        memset(x, 0, xlen);
+        printf("randombytes failed opening /dev/urandom: %s\n", strerror(errno));
+        exit(errno);
     } else {
         if (read(randomdata, x, xlen) < 0) {
-            memset(x, 0, xlen);
+            printf("randombytes failed reading from /dev/urandom: %s\n", strerror(errno));
+            exit(errno);
         }
     }
 }
