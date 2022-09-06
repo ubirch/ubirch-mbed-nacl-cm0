@@ -8,10 +8,12 @@ char getRandomNumber() {
 
 // guaranteed to be random.
 
-void randombytes(unsigned char *x, unsigned long long xlen) {
+int randombytes(unsigned char *x, unsigned long long xlen) {
     while (xlen > 0) {
         *x = (unsigned char) getRandomNumber();
         x++;
         xlen--;
     }
+
+    return (0);
 }

@@ -34,7 +34,9 @@ int crypto_sign_ed25519_keypair(
   unsigned char extsk[64];
   int i;
 
-  randombytes(sk, 32);
+  if (randombytes(sk, 32) != 0) {
+    return (-1);
+  }
 
   crypto_hash_sha512(extsk, sk, 32);
   extsk[0] &= 248;
